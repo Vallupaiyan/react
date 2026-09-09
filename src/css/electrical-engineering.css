@@ -1,0 +1,445 @@
+/* ============================================================
+   Electrical Engineering — Course Page Stylesheet
+   Direction: "Cyanotype Blueprint" — deep Prussian-blue canvas,
+   faint schematic hairline grid, single copper "live wire"
+   accent. Corner datum-marks on the hero image are the
+   signature motif, echoing reference marks on a technical
+   drawing. Everything else stays quiet so that reads clearly.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  /* Palette */
+  --ink: #0f3257;         /* page background — blueprint blue */
+  --ink-deep: #081d33;    /* darkest, used on the CTA text */
+  --ink-panel: #143a60;   /* card / tag surface, one step up */
+
+  --line: rgba(238, 244, 251, 0.14);
+  --line-soft: rgba(238, 244, 251, 0.06);
+
+  --paper: #eef4fb;       /* headings, primary text */
+  --paper-dim: #9fb6d1;   /* body copy */
+
+  --copper: #e2a63f;      /* single accent — the live wire */
+  --copper-deep: #b9822c;
+  --copper-tint: rgba(226, 166, 63, 0.14);
+
+  /* Type */
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Layout */
+  --container: 1160px;
+  --radius: 10px;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ---------------- Reset & base ---------------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper-dim);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; color: var(--paper); }
+p { margin: 0; }
+button { font-family: var(--font-body); cursor: pointer; border: none; }
+
+::selection { background: var(--copper); color: var(--ink-deep); }
+
+/* faint schematic grid wash behind the whole page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
+/* ---------------- Section shell ---------------- */
+section {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+section h2 {
+  font-size: clamp(26px, 3.6vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  min-height: 90vh;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 55% at 15% 30%, var(--copper-tint), transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  animation: rise 0.8s var(--ease) both;
+}
+.hero-content h1 {
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+}
+.hero-content h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: var(--copper);
+  margin: 22px 0;
+}
+.hero-content p {
+  font-size: 16.5px;
+  color: var(--paper-dim);
+  margin-bottom: 32px;
+}
+.hero-content button {
+  background: var(--copper);
+  color: var(--ink-deep);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 15px 30px;
+  border-radius: var(--radius);
+  transition: transform 0.25s var(--ease), background 0.25s, box-shadow 0.25s;
+}
+.hero-content button:hover {
+  background: #f0b559;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px -14px rgba(226, 166, 63, 0.45);
+}
+
+.hero-image {
+  position: relative;
+  z-index: 1;
+  animation: rise 0.9s var(--ease) 0.1s both;
+}
+.hero-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+.hero-image::before,
+.hero-image::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--copper);
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-image::before { top: -12px; left: -12px; border-right: none; border-bottom: none; }
+.hero-image::after  { bottom: -12px; right: -12px; border-left: none; border-top: none; }
+
+@keyframes rise {
+  0%   { opacity: 0; transform: translateY(22px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
+.stats {
+  max-width: none;
+  margin: 0;
+  background: var(--ink-deep);
+  padding: 56px 24px;
+}
+.stats-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+.stat h3 {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--copper);
+}
+.stat span {
+  display: block;
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: var(--paper-dim);
+  letter-spacing: 0.03em;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+.about {
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.about h2 { margin-bottom: 20px; }
+.about p {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+/* =========================================================
+   TOPICS
+   ========================================================= */
+.topics {
+  border-top: 1px solid var(--line);
+}
+.topics h2 {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.card {
+  background: var(--ink-panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--copper-deep);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  transition: transform 0.25s var(--ease), border-color 0.25s, background 0.25s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-left-color: var(--copper);
+  background: #16436e;
+}
+.card h3 {
+  font-size: 18.5px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--paper-dim);
+}
+
+/* =========================================================
+   CURRICULUM
+   ========================================================= */
+.curriculum {
+  border-top: 1px solid var(--line);
+}
+.curriculum h2 {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.curriculum-list {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+.curriculum-list::before {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--line);
+}
+.curriculum-item {
+  display: flex;
+  gap: 24px;
+  position: relative;
+  padding-bottom: 36px;
+}
+.curriculum-item:last-child { padding-bottom: 0; }
+.curriculum-number {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink-panel);
+  border: 1px solid var(--copper-deep);
+  color: var(--copper);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.curriculum-item h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.curriculum-item p {
+  font-size: 14px;
+  color: var(--paper-dim);
+}
+
+/* =========================================================
+   CAREER
+   ========================================================= */
+.career {
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.career h2 { margin-bottom: 40px; }
+.career-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+.career-list div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 20px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--paper);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.career-list div::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--copper);
+  flex-shrink: 0;
+}
+.career-list div:hover {
+  border-color: var(--copper);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+.testimonials {
+  border-top: 1px solid var(--line);
+}
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.testimonial-card {
+  position: relative;
+  background: var(--ink-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px 26px 24px;
+}
+.testimonial-card::before {
+  content: "\201C";
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-family: Georgia, serif;
+  font-size: 46px;
+  line-height: 1;
+  color: var(--copper-deep);
+}
+.testimonial-card p {
+  margin-top: 26px;
+  margin-bottom: 20px;
+  font-size: 14.5px;
+  color: var(--paper-dim);
+}
+.testimonial-author h4 {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--paper);
+  margin: 0;
+}
+.testimonial-author span {
+  font-size: 12.5px;
+  font-family: var(--font-mono);
+  color: var(--copper);
+}
+
+/* ---- reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding-top: 100px;
+  }
+  .hero-content { max-width: 100%; }
+  .card-container { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonial-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  section { padding: 70px 20px; }
+  .card-container { grid-template-columns: 1fr; }
+  .career-list { flex-direction: column; align-items: stretch; }
+  .curriculum-item { gap: 16px; padding-bottom: 28px; }
+  .curriculum-number { width: 40px; height: 40px; font-size: 13px; }
+}

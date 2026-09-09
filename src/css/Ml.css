@@ -1,0 +1,197 @@
+/* ===== Base ===== */
+.aiml-page {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #150f2e;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+.aiml-page h1,
+.aiml-page h2,
+.aiml-page h3 {
+  margin: 0 0 12px 0;
+}
+
+/* ===== Hero Section ===== */
+.aiml-page .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 90px 8%;
+  background: linear-gradient(135deg, #0d0221, #241654, #3b0764);
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.aiml-page .hero-content {
+  flex: 1 1 420px;
+}
+
+.aiml-page .tag {
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #c084fc;
+  margin-bottom: 14px;
+}
+
+.aiml-page .hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.aiml-page .hero-content h1 span {
+  background: linear-gradient(90deg, #c084fc, #67e8f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.aiml-page .description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #d8d3e8;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+
+.aiml-page .hero-content button {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #c084fc, #67e8f9);
+  color: #0d0221;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.aiml-page .hero-content button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(192, 132, 252, 0.35);
+}
+
+.aiml-page .hero-image {
+  flex: 1 1 380px;
+  display: flex;
+  justify-content: center;
+}
+
+.aiml-page .hero-image img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Learning Section ===== */
+.aiml-page .learning {
+  padding: 70px 8%;
+  background: #f9f7fd;
+  text-align: center;
+}
+
+.aiml-page .learning > h2 {
+  font-size: 2rem;
+  color: #150f2e;
+}
+
+.aiml-page .learning .subtitle {
+  font-size: 1rem;
+  color: #6b6280;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+.aiml-page .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 26px;
+  text-align: left;
+}
+
+.aiml-page .card {
+  background: #fff;
+  border: 1px solid #e8e2f5;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.aiml-page .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(59, 7, 100, 0.15);
+  border-color: #c084fc;
+}
+
+.aiml-page .card .icon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.aiml-page .card h3 {
+  font-size: 1.15rem;
+  color: #150f2e;
+}
+
+.aiml-page .card p {
+  font-size: 0.95rem;
+  color: #6b6280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Technology Section ===== */
+.aiml-page .technologies {
+  padding: 70px 8%;
+  background: linear-gradient(135deg, #0d0221, #241654, #3b0764);
+  color: #fff;
+  text-align: center;
+}
+
+.aiml-page .technologies h2 {
+  font-size: 2rem;
+  margin-bottom: 36px;
+}
+
+.aiml-page .tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.aiml-page .tool-list span {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.aiml-page .tool-list span:hover {
+  background: rgba(192, 132, 252, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .aiml-page .hero-content h1 {
+    font-size: 2.1rem;
+  }
+
+  .aiml-page .hero,
+  .aiml-page .learning,
+  .aiml-page .technologies {
+    padding: 50px 6%;
+  }
+}

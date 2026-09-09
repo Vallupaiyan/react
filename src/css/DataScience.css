@@ -1,0 +1,458 @@
+/* ===== Base ===== */
+.ds-page {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #10172a;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+.ds-page h1,
+.ds-page h2,
+.ds-page h3 {
+  margin: 0 0 12px 0;
+}
+
+/* ===== Hero Section ===== */
+.ds-page .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 90px 8%;
+  background: linear-gradient(135deg, #0b1220, #133a63, #0e7490);
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.ds-page .hero-content {
+  flex: 1 1 420px;
+}
+
+.ds-page .tag {
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5eead4;
+  margin-bottom: 14px;
+}
+
+.ds-page .hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.ds-page .hero-content h1 span {
+  background: linear-gradient(90deg, #5eead4, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ds-page .description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+
+.ds-page .hero-content button {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #5eead4, #38bdf8);
+  color: #0b1220;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ds-page .hero-content button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
+
+.ds-page .hero-image {
+  flex: 1 1 380px;
+  display: flex;
+  justify-content: center;
+}
+
+.ds-page .hero-image img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Skills Section ===== */
+.ds-page .skills {
+  padding: 70px 8%;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.ds-page .skills > h2 {
+  font-size: 2rem;
+  color: #10172a;
+}
+
+.ds-page .skills .subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+.ds-page .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 26px;
+  text-align: left;
+}
+
+.ds-page .card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ds-page .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(14, 116, 144, 0.15);
+  border-color: #38bdf8;
+}
+
+.ds-page .card .icon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.ds-page .card h3 {
+  font-size: 1.15rem;
+  color: #10172a;
+}
+
+.ds-page .card p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Tools Section ===== */
+.ds-page .tools {
+  padding: 70px 8%;
+  background: linear-gradient(135deg, #0b1220, #133a63, #0e7490);
+  color: #fff;
+  text-align: center;
+}
+
+.ds-page .tools h2 {
+  font-size: 2rem;
+  margin-bottom: 36px;
+}
+
+.ds-page .tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ds-page .tool-list span {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.ds-page .tool-list span:hover {
+  background: rgba(94, 234, 212, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ===== Stats Section ===== */
+.ds-page .stats {
+  padding: 50px 8%;
+  background: #f8fafc;
+}
+
+.ds-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+
+.ds-page .stat h3 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #0e7490, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ds-page .stat p {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ===== Roadmap Section ===== */
+.ds-page .roadmap {
+  padding: 70px 8%;
+  background: #fff;
+}
+
+.ds-page .roadmap > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #10172a;
+}
+
+.ds-page .roadmap-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ds-page .roadmap-item {
+  display: flex;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ds-page .roadmap-item:last-child {
+  border-bottom: none;
+}
+
+.ds-page .step-num {
+  flex: 0 0 auto;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #38bdf8;
+  min-width: 48px;
+}
+
+.ds-page .step-content h3 {
+  font-size: 1.15rem;
+  color: #10172a;
+  margin-bottom: 6px;
+}
+
+.ds-page .step-content p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Career Section ===== */
+.ds-page .career {
+  padding: 70px 8%;
+  background: #f8fafc;
+}
+
+.ds-page .career > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #10172a;
+}
+
+.ds-page .career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.ds-page .career-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ds-page .career-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(14, 116, 144, 0.15);
+}
+
+.ds-page .career-card .icon {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.ds-page .career-card h3 {
+  font-size: 1.1rem;
+  color: #10172a;
+}
+
+.ds-page .career-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ===== Testimonials Section ===== */
+.ds-page .testimonials {
+  padding: 70px 8%;
+  background: #fff;
+}
+
+.ds-page .testimonials > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #10172a;
+}
+
+.ds-page .testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.ds-page .testimonial-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.ds-page .testimonial-card .quote {
+  font-size: 0.98rem;
+  color: #334155;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.ds-page .testimonial-card .author {
+  font-weight: 700;
+  color: #10172a;
+  margin: 0;
+}
+
+.ds-page .testimonial-card .role {
+  font-size: 0.88rem;
+  color: #0e7490;
+  margin: 0;
+}
+
+/* ===== FAQ Section ===== */
+.ds-page .faq {
+  padding: 70px 8%;
+  background: #f8fafc;
+}
+
+.ds-page .faq > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #10172a;
+}
+
+.ds-page .faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ds-page .faq-item {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 18px 4px;
+  cursor: pointer;
+}
+
+.ds-page .faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #10172a;
+}
+
+.ds-page .faq-toggle {
+  font-size: 1.3rem;
+  color: #38bdf8;
+}
+
+.ds-page .faq-answer {
+  margin: 12px 0 0 0;
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* ===== Footer Section ===== */
+.ds-page .footer {
+  padding: 70px 8%;
+  background: linear-gradient(135deg, #0b1220, #133a63, #0e7490);
+  color: #fff;
+  text-align: center;
+}
+
+.ds-page .footer h2 {
+  font-size: 1.9rem;
+}
+
+.ds-page .footer p {
+  color: #cbd5e1;
+  max-width: 500px;
+  margin: 0 auto 26px auto;
+}
+
+.ds-page .footer-btn {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #5eead4, #38bdf8);
+  color: #0b1220;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ds-page .footer-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
+
+.ds-page .footer-note {
+  margin-top: 40px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .ds-page .hero-content h1 {
+    font-size: 2.1rem;
+  }
+
+  .ds-page .hero,
+  .ds-page .skills,
+  .ds-page .tools {
+    padding: 50px 6%;
+  }
+}

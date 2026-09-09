@@ -1,0 +1,184 @@
+/* footer.css */
+
+.pf-footer {
+  background: #0f1b2d;
+  color: #cbd5e1;
+  font-family: "Segoe UI", Arial, sans-serif;
+  padding: 60px 20px 0;
+}
+
+.pf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pf-footer-col h4 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 18px;
+  position: relative;
+}
+
+.pf-footer-col h4::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #2563eb;
+  margin-top: 10px;
+}
+
+/* Column 1: Logo + About */
+.pf-logo {
+  max-width: 160px;
+  margin-bottom: 16px;
+}
+
+.pf-short-about {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Link lists */
+.pf-footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pf-footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.pf-footer-col ul li a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.pf-footer-col ul li a i {
+  font-size: 11px;
+  color: #2563eb;
+}
+
+.pf-footer-col ul li a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* Column 5: Contact */
+.pf-contact-col .pf-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.pf-contact-col .pf-contact i {
+  color: #2563eb;
+  margin-top: 3px;
+  width: 14px;
+  text-align: center;
+}
+
+/* Bottom row */
+.pf-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 22px 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.pf-bottom-center a {
+  color: #94a3b8;
+  text-decoration: none;
+  margin: 0 4px;
+}
+
+.pf-bottom-center a:hover {
+  color: #ffffff;
+}
+
+.pf-bottom-left {
+  display: flex;
+  gap: 12px;
+}
+
+.pf-bottom-left a {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pf-bottom-left a:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+/* Responsive */
+@media (max-width: 992px) {
+  .pf-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 28px 24px;
+  }
+
+  /* Logo/about column full width vaanga, matha 4 columns evenly wrap aagum */
+  .pf-footer-col:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .pf-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 30px;
+  }
+
+  .pf-footer-col:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .pf-footer {
+    padding: 44px 18px 0;
+  }
+
+  .pf-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .pf-bottom {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+  }
+}

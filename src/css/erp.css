@@ -1,0 +1,1015 @@
+/* erp.css */
+
+/* Global reset & base font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Height of the fixed/sticky navbar — adjust to match your actual header.
+   Used to push hero content down so it never hides behind the navbar. */
+:root {
+    --navbar-height: 90px;
+}
+
+/* ================= ERP HERO SECTION ================= */
+.erp-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: var(--navbar-height);
+    box-sizing: border-box;
+}
+
+/* Background image lives on its own layer so it can zoom
+   independently of the overlay + text content */
+.erp-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("./src/assets/solution/ERPhero.jpg") center/cover no-repeat;
+    animation: heroKenBurns 18s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+.erp-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 32, 82, 0.55);
+    z-index: 1;
+}
+
+.erp-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.erp-hero-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    color: #ffffff;
+    opacity: 0;
+    animation: heroFadeUp 0.9s ease-out 0.1s forwards;
+}
+
+.erp-hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    color: #e8f1ff;
+    opacity: 0;
+    animation: heroFadeUp 0.9s ease-out 0.35s forwards;
+}
+
+.erp-hero-btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #0b5ed7;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: heroFadeUp 0.9s ease-out 0.6s forwards;
+}
+
+.erp-hero-btn:hover {
+    background: #084298;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(11, 94, 215, 0.35);
+}
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroKenBurns {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Respect users who've asked for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .erp-hero::before,
+    .erp-hero-content h1,
+    .erp-hero-content p,
+    .erp-hero-btn {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+/* ========== Hero Responsive ========== */
+@media (max-width: 992px) {
+    :root {
+        --navbar-height: 80px;
+    }
+
+    .erp-hero {
+        height: auto;
+        min-height: 80vh;
+        padding-bottom: 40px;
+    }
+
+    .erp-hero-content h1 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --navbar-height: 72px;
+    }
+
+    .erp-hero {
+        min-height: 75vh;
+        padding-bottom: 40px;
+    }
+
+    .erp-hero-content h1 {
+        font-size: 32px;
+    }
+
+    .erp-hero-content p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --navbar-height: 66px;
+    }
+
+    .erp-hero {
+        min-height: 70vh;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 36px;
+    }
+
+    .erp-hero-content h1 {
+        font-size: 26px;
+        margin-bottom: 14px;
+    }
+
+    .erp-hero-content p {
+        font-size: 14.5px;
+        margin-bottom: 22px;
+    }
+
+    .erp-hero-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+/* ================= SIMPLE ERP FLOW SECTION ================= */
+.erp-flow-simple {
+    width: 100%;
+    padding: 80px 6%;
+    background: #ffffff;
+}
+
+.erp-flow-wrapper {
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* Left - Content */
+.erp-flow-left {
+    flex: 1;
+}
+
+.erp-flow-left h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0657A3;
+    margin-bottom: 20px;
+}
+
+.erp-flow-left p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 18px;
+}
+
+/* Right - Image */
+.erp-flow-right {
+    flex: 1;
+    text-align: right;
+}
+
+.erp-flow-right img {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 14px;
+    box-shadow: 0px 8px 18px rgba(0,0,0,0.12);
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 992px) {
+    .erp-flow-simple {
+        padding: 60px 6%;
+    }
+
+    .erp-flow-wrapper {
+        flex-direction: column;
+        text-align: left;
+        gap: 30px;
+    }
+
+    .erp-flow-right {
+        text-align: center;
+        order: -1;
+    }
+
+    .erp-flow-right img {
+        max-width: 450px;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .erp-flow-simple {
+        padding: 50px 5%;
+    }
+
+    .erp-flow-left h2 {
+        font-size: 26px;
+    }
+
+    .erp-flow-left p {
+        font-size: 15px;
+    }
+
+    .erp-flow-right img {
+        max-width: 100%;
+    }
+}
+
+/* ================= ERP FEATURES CARDS SECTION ================= */
+.erp-features-cards {
+    width: 100%;
+    padding: 80px 6%;
+    background: #f7f9fc;
+}
+
+.erp-features-container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.erp-features-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0657A3;
+    margin-bottom: 50px;
+}
+
+/* Cards Wrapper */
+.erp-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Individual Card */
+.erp-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.erp-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* Decorative Shape */
+.erp-card-shape {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(6, 87, 163, 0.08);
+    border-radius: 50%;
+    top: -20px;
+    right: -20px;
+    z-index: 0;
+}
+
+/* Card Content */
+.erp-card h3 {
+    position: relative;
+    z-index: 1;
+    font-size: 20px;
+    font-weight: 700;
+    color: #033c7d;
+    margin-bottom: 12px;
+}
+
+.erp-card p {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .erp-features-cards {
+        padding: 60px 6%;
+    }
+
+    .erp-cards-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .erp-features-title {
+        font-size: 28px;
+        margin-bottom: 36px;
+    }
+
+    .erp-card {
+        padding: 25px 15px;
+    }
+
+    .erp-card-shape {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .erp-features-cards {
+        padding: 50px 5%;
+    }
+
+    .erp-cards-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .erp-features-title {
+        font-size: 24px;
+    }
+}
+
+/* ================= WHY ERP MATTERS SECTION (PNG Friendly) ================= */
+.erp-why-left {
+    width: 100%;
+    padding: 80px 6%;
+}
+
+.erp-why-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* Left Image */
+.erp-why-image {
+    flex: 1;
+    text-align: left;
+}
+
+.erp-why-image img {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Right Content */
+.erp-why-content {
+    flex: 1;
+}
+
+.erp-why-content h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0657A3;
+    margin-bottom: 25px;
+}
+
+.erp-why-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 18px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .erp-why-left {
+        padding: 60px 6%;
+    }
+
+    .erp-why-wrapper {
+        flex-direction: column;
+        text-align: left;
+        gap: 30px;
+    }
+
+    .erp-why-image {
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .erp-why-image img {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .erp-why-left {
+        padding: 50px 5%;
+    }
+
+    .erp-why-content h2 {
+        font-size: 26px;
+    }
+
+    .erp-why-content p {
+        font-size: 15px;
+    }
+
+    .erp-why-image img {
+        max-width: 100%;
+    }
+}
+
+/* ================= CUSTOMIZED ERP BUSINESS SUITE SECTION ================= */
+.erp-business-suite {
+    width: 100%;
+    padding: 80px 6%;
+    background: #f4f9ff;
+}
+
+.erp-suite-wrapper {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.erp-suite-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0657A3;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Features Grid */
+.erp-suite-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 50px;
+}
+
+.erp-suite-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+}
+
+/* Feature Number */
+.feature-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    background: #0657A3;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Feature Text */
+.erp-suite-feature p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Optional subtle shape behind text (light blue circle) */
+.erp-suite-feature::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(6, 87, 163, 0.05);
+    border-radius: 50%;
+    top: -10px;
+    left: -10px;
+    z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .erp-business-suite {
+        padding: 60px 6%;
+    }
+
+    .erp-suite-features {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .erp-suite-feature::before {
+        top: 0;
+        left: -5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .erp-business-suite {
+        padding: 50px 5%;
+    }
+
+    .erp-suite-title {
+        font-size: 26px;
+        margin-bottom: 36px;
+    }
+
+    .erp-suite-feature p {
+        font-size: 14.5px;
+    }
+
+    .feature-number {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+/* ================= STATS / TRUST BAR ================= */
+.erp-stats-bar {
+    background: #0657A3;
+    padding: 50px 6%;
+}
+
+.erp-stats-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.erp-stat {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.erp-stat:last-child {
+    border-right: none;
+}
+
+.erp-stat-number {
+    display: block;
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.erp-stat-label {
+    display: block;
+    font-size: 14px;
+    color: #cfe0f5;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .erp-stats-wrapper {
+        flex-wrap: wrap;
+        row-gap: 30px;
+    }
+
+    .erp-stat {
+        flex: 1 1 45%;
+        min-width: 140px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .erp-stats-bar {
+        padding: 40px 6%;
+    }
+
+    .erp-stat {
+        flex: 1 1 100%;
+        padding: 0 10px 20px;
+    }
+
+    .erp-stat:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .erp-stat-number {
+        font-size: 32px;
+    }
+
+    .erp-stat-label {
+        font-size: 13px;
+    }
+}
+
+/* ================= ERP MODULES GRID SECTION ================= */
+.erp-modules-section {
+    width: 100%;
+    padding: 80px 6%;
+    background: #ffffff;
+}
+
+.erp-modules-container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.erp-modules-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0657A3;
+    margin-bottom: 12px;
+}
+
+.erp-modules-subtitle {
+    font-size: 16px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+}
+
+.erp-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 26px;
+    text-align: left;
+}
+
+.erp-module-card {
+    background: #f7f9fc;
+    border-radius: 16px;
+    padding: 28px 22px;
+    border: 1px solid transparent;
+    transition: 0.3s ease;
+}
+
+.erp-module-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(6, 87, 163, 0.15);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.erp-module-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #0657A3;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.erp-module-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #033c7d;
+    margin-bottom: 10px;
+}
+
+.erp-module-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .erp-modules-section {
+        padding: 60px 6%;
+    }
+
+    .erp-modules-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .erp-modules-title {
+        font-size: 28px;
+    }
+
+    .erp-modules-subtitle {
+        font-size: 15px;
+        margin-bottom: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .erp-modules-section {
+        padding: 50px 5%;
+    }
+
+    .erp-modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .erp-modules-title {
+        font-size: 24px;
+    }
+
+    .erp-module-card {
+        padding: 22px 18px;
+    }
+}
+
+/* ================= CLIENT TESTIMONIALS SECTION ================= */
+.erp-testimonials {
+    width: 100%;
+    padding: 80px 6%;
+    background: #f4f9ff;
+}
+
+.erp-testimonials-container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.erp-testimonials-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0657A3;
+    margin-bottom: 50px;
+}
+
+.erp-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+    text-align: left;
+}
+
+.erp-testimonial-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 26px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transition: 0.3s ease;
+}
+
+.erp-testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+}
+
+.erp-testimonial-quote {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.erp-testimonial-quote::before {
+    content: "\201C";
+}
+
+.erp-testimonial-quote::after {
+    content: "\201D";
+}
+
+.erp-testimonial-author {
+    font-size: 14px;
+    font-weight: 700;
+    color: #033c7d;
+}
+
+.erp-testimonial-role {
+    font-size: 13px;
+    color: #777;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .erp-testimonials {
+        padding: 60px 6%;
+    }
+
+    .erp-testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .erp-testimonials-title {
+        font-size: 28px;
+        margin-bottom: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .erp-testimonials {
+        padding: 50px 5%;
+    }
+
+    .erp-testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .erp-testimonials-title {
+        font-size: 24px;
+    }
+
+    .erp-testimonial-card {
+        padding: 24px 20px;
+    }
+}
+
+/* ================= FAQ SECTION ================= */
+.erp-faq {
+    width: 100%;
+    padding: 80px 6%;
+    background: #ffffff;
+}
+
+.erp-faq-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.erp-faq-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0657A3;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.erp-faq-item {
+    border-bottom: 1px solid #e3e9f2;
+}
+
+.erp-faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 22px 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #033c7d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+
+.erp-faq-icon {
+    font-size: 22px;
+    line-height: 1;
+    color: #0657A3;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.erp-faq-item.open .erp-faq-icon {
+    transform: rotate(45deg);
+}
+
+.erp-faq-answer-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.erp-faq-item.open .erp-faq-answer-wrapper {
+    grid-template-rows: 1fr;
+}
+
+.erp-faq-answer-inner {
+    overflow: hidden;
+}
+
+.erp-faq-answer-inner p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+    padding: 0 4px 22px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .erp-faq {
+        padding: 60px 6%;
+    }
+}
+
+@media (max-width: 768px) {
+    .erp-faq-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .erp-faq-question {
+        font-size: 15px;
+        padding: 18px 2px;
+        gap: 12px;
+    }
+
+    .erp-faq-answer-inner p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .erp-faq {
+        padding: 50px 5%;
+    }
+
+    .erp-faq-title {
+        font-size: 24px;
+    }
+
+    .erp-faq-question {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .erp-faq-icon {
+        font-size: 18px;
+    }
+}

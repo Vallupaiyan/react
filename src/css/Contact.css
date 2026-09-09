@@ -1,0 +1,227 @@
+/* ===== Base ===== */
+.contact {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1a1a2e;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 80px 8%;
+  background: #f8fafc;
+}
+
+.contact h1,
+.contact h2,
+.contact h3 {
+  margin: 0 0 12px 0;
+}
+
+/* ===== Left Content ===== */
+.contact-info {
+  flex: 1 1 400px;
+}
+
+.contact-info .tag {
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #6366f1;
+  margin-bottom: 14px;
+}
+
+.contact-info h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #1a1a2e;
+}
+
+.contact-info h1 span {
+  background: linear-gradient(90deg, #6366f1, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.contact-info .description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4b5563;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.contact-info .info-box {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-info .info-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.12);
+  border-color: #a78bfa;
+}
+
+.contact-info .info-box h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.contact-info .info-box p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ===== Contact Form ===== */
+.contact-form {
+  flex: 1 1 420px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(26, 26, 46, 0.08);
+}
+
+.contact-form h2 {
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin-bottom: 24px;
+}
+
+.contact-form .input-box {
+  margin-bottom: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+  color: #1a1a2e;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  background: #fff;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #6366f1, #a78bfa);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+}
+
+/* ===== Branches Section (Map + Branch List) ===== */
+.branches-section {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f8fafc;
+  padding: 20px 8% 90px;
+}
+
+
+/* ── Map ── */
+.map-card {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(26, 26, 46, 0.08);
+}
+
+.map-frame-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+}
+
+@media (max-width: 640px) {
+  .map-frame-wrapper {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.map-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  /* Purely visual — the overlay link below handles the click, so the
+     iframe itself doesn't need to receive pointer events. */
+  pointer-events: none;
+}
+
+/* Full-cover clickable overlay. Clicking anywhere on the map opens
+   Google Maps (with all branch pins) in a new tab. */
+.map-overlay-link {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20px;
+  text-decoration: none;
+  background: linear-gradient(to top, rgba(26, 26, 46, 0.35) 0%, rgba(26, 26, 46, 0) 30%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  cursor: pointer;
+}
+
+.map-frame-wrapper:hover .map-overlay-link,
+.map-frame-wrapper:focus-within .map-overlay-link {
+  opacity: 1;
+}
+
+/* Always-visible fallback badge so it's discoverable on touch
+   devices too (no hover state on mobile). */
+@media (hover: none) {
+  .map-overlay-link {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(26, 26, 46, 0.28) 0%, rgba(26, 26, 46, 0) 35%);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .contact {
+    padding: 50px 6%;
+  }
+
+  .contact-info h1 {
+    font-size: 2rem;
+  }
+
+  .contact-form {
+    padding: 28px;
+  }
+
+  .branches-section {
+    padding: 10px 6% 60px;
+  }
+}

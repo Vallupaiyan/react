@@ -1,0 +1,415 @@
+/* ===== Base ===== */
+.arts-page {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #221a2e;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+.arts-page h1,
+.arts-page h2,
+.arts-page h3 {
+  margin: 0 0 12px 0;
+}
+
+/* ===== Hero Section ===== */
+.arts-page .arts-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 90px 8%;
+  background: linear-gradient(135deg, #ff6a88, #ff9a6c, #a86bff);
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.arts-page .content {
+  flex: 1 1 420px;
+}
+
+.arts-page .tag {
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff2cc;
+  margin-bottom: 14px;
+}
+
+.arts-page .content h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.arts-page .content h1 span {
+  background: linear-gradient(90deg, #fff2cc, #ffe08a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.arts-page .description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #fdeef0;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+
+.arts-page .content button {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  color: #a02f6e;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.arts-page .content button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.arts-page .image-section {
+  flex: 1 1 380px;
+  display: flex;
+  justify-content: center;
+}
+
+.arts-page .image-section img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Courses Section ===== */
+.arts-page .courses {
+  padding: 70px 8%;
+  background: #fdf6f2;
+}
+
+.arts-page .courses > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #221a2e;
+}
+
+.arts-page .course-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 26px;
+}
+
+.arts-page .card {
+  background: #fff;
+  border: 1px solid #f1e2e5;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.arts-page .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(168, 107, 255, 0.18);
+  border-color: #ff9a6c;
+}
+
+.arts-page .card .icon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.arts-page .card h3 {
+  font-size: 1.15rem;
+  color: #221a2e;
+}
+
+.arts-page .card p {
+  font-size: 0.95rem;
+  color: #6b6270;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Stats Section ===== */
+.arts-page .stats {
+  padding: 50px 8%;
+  background: #fff;
+}
+
+.arts-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+
+.arts-page .stat h3 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff6a88, #a86bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.arts-page .stat p {
+  font-size: 0.95rem;
+  color: #6b6270;
+  margin: 0;
+}
+
+/* ===== Tools Section ===== */
+.arts-page .tools {
+  padding: 70px 8%;
+  background: linear-gradient(135deg, #a86bff, #ff6a88);
+  color: #fff;
+}
+
+.arts-page .tools-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.arts-page .tools-content > div:first-child {
+  flex: 1 1 360px;
+}
+
+.arts-page .tools-content h2 {
+  font-size: 1.9rem;
+}
+
+.arts-page .tools-desc {
+  color: #fdeef0;
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0;
+}
+
+.arts-page .tools-list {
+  flex: 1 1 360px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.arts-page .tools-list span {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.arts-page .tools-list span:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+/* ===== Gallery Section ===== */
+.arts-page .gallery {
+  padding: 70px 8%;
+  background: #fdf6f2;
+}
+
+.arts-page .gallery > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #221a2e;
+}
+
+.arts-page .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.arts-page .gallery-item {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #f1e2e5;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.arts-page .gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(168, 107, 255, 0.18);
+}
+
+.arts-page .gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.arts-page .gallery-item p {
+  padding: 14px;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #221a2e;
+  text-align: center;
+}
+
+/* ===== Testimonials Section ===== */
+.arts-page .testimonials {
+  padding: 70px 8%;
+  background: #fff;
+}
+
+.arts-page .testimonials > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #221a2e;
+}
+
+.arts-page .testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.arts-page .testimonial-card {
+  background: #fdf6f2;
+  border: 1px solid #f1e2e5;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.arts-page .testimonial-card .quote {
+  font-size: 0.98rem;
+  color: #4a4150;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.arts-page .testimonial-card .author {
+  font-weight: 700;
+  color: #221a2e;
+  margin: 0;
+}
+
+.arts-page .testimonial-card .role {
+  font-size: 0.88rem;
+  color: #a86bff;
+  margin: 0;
+}
+
+/* ===== Career Section ===== */
+.arts-page .career {
+  padding: 70px 8%;
+  background: #fdf6f2;
+}
+
+.arts-page .career > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #221a2e;
+}
+
+.arts-page .career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.arts-page .career-card {
+  background: #fff;
+  border: 1px solid #f1e2e5;
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.arts-page .career-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(168, 107, 255, 0.18);
+}
+
+.arts-page .career-card .icon {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.arts-page .career-card h3 {
+  font-size: 1.1rem;
+  color: #221a2e;
+}
+
+.arts-page .career-card p {
+  font-size: 0.9rem;
+  color: #6b6270;
+  margin: 0;
+}
+
+/* ===== Footer Section ===== */
+.arts-page .footer {
+  padding: 70px 8%;
+  background: linear-gradient(135deg, #ff6a88, #ff9a6c, #a86bff);
+  color: #fff;
+  text-align: center;
+}
+
+.arts-page .footer h2 {
+  font-size: 1.9rem;
+}
+
+.arts-page .footer p {
+  color: #fdeef0;
+  max-width: 500px;
+  margin: 0 auto 26px auto;
+}
+
+.arts-page .footer-btn {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  color: #a02f6e;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.arts-page .footer-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.arts-page .footer-note {
+  margin-top: 40px;
+  font-size: 0.8rem;
+  color: #fde5ea;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .arts-page .content h1 {
+    font-size: 2.2rem;
+  }
+
+  .arts-page .arts-hero,
+  .arts-page .courses {
+    padding: 50px 6%;
+  }
+}

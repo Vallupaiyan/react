@@ -1,0 +1,600 @@
+/* ==========================================================================
+   Appllicationdevelopment.css
+   Design tokens
+   Color   : #0B1220 (ink navy) · #101A2E (panel) · #F5F7FA (paper)
+             #FF7A45 (signal orange - accent/CTA) · #14C9A6 (mint - success/stat)
+             #8FA0C0 (muted slate text on dark)
+   Type    : "Sora" for display/headings, "Inter" for body/UI
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.adp-root {
+  --adp-ink: #0b1220;
+  --adp-panel: #101a2e;
+  --adp-panel-2: #16223c;
+  --adp-paper: #f5f7fa;
+  --adp-paper-2: #ffffff;
+  --adp-orange: #ff7a45;
+  --adp-orange-dark: #e2612f;
+  --adp-mint: #14c9a6;
+  --adp-slate: #8fa0c0;
+  --adp-slate-dark: #4c5a76;
+  --adp-line: rgba(143, 160, 192, 0.18);
+
+  --adp-display: "Sora", sans-serif;
+  --adp-body: "Inter", sans-serif;
+
+  font-family: var(--adp-body);
+  color: var(--adp-ink);
+  background: var(--adp-paper);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.adp-root * { box-sizing: border-box; }
+.adp-root img { max-width: 100%; display: block; }
+.adp-root ul { list-style: none; margin: 0; padding: 0; }
+.adp-root a { text-decoration: none; color: inherit; }
+.adp-root button { font-family: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  .adp-root *, .adp-root *::before, .adp-root *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ================= HERO ================= */
+.adp-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(120% 120% at 50% 0%, #17233d 0%, var(--adp-ink) 60%);
+  padding: 120px 24px 100px;
+  overflow: hidden;
+}
+
+.adp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 64px);
+  pointer-events: none;
+}
+
+.adp-hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--adp-orange);
+  opacity: 0.55;
+  filter: blur(0.5px);
+  animation: adp-float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes adp-float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-22px) scale(1.15); opacity: 0.8; }
+}
+
+.adp-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.adp-hero-eyebrow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.adp-hero-eyebrow.is-loaded { opacity: 1; transform: translateY(0); }
+
+.adp-pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--adp-mint);
+  box-shadow: 0 0 0 0 rgba(20, 201, 166, 0.6);
+  animation: adp-pulse 1.8s ease-out infinite;
+}
+
+@keyframes adp-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(20, 201, 166, 0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(20, 201, 166, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(20, 201, 166, 0); }
+}
+
+.adp-h1 {
+  font-family: var(--adp-display);
+  font-weight: 800;
+  font-size: clamp(34px, 6vw, 60px);
+  line-height: 1.12;
+  color: var(--adp-paper-2);
+  margin: 0 0 22px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.adp-h1.is-loaded { opacity: 1; transform: translateY(0); }
+
+.adp-hero-p {
+  color: var(--adp-slate);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto 36px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s;
+}
+
+.adp-hero-p.is-loaded { opacity: 1; transform: translateY(0); }
+
+.adp-hero-cta {
+  display: inline-flex;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.adp-hero-cta.is-loaded { opacity: 1; transform: translateY(0); }
+
+/* ================= BUTTON ================= */
+.adp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 32px;
+  border-radius: 999px;
+  background: var(--adp-orange);
+  color: var(--adp-ink);
+  font-family: var(--adp-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255, 122, 69, 0.32);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.adp-btn:hover {
+  transform: translateY(-3px);
+  background: var(--adp-orange-dark);
+  box-shadow: 0 14px 34px rgba(255, 122, 69, 0.45);
+}
+
+.adp-btn-arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.adp-btn:hover .adp-btn-arrow { transform: translateX(4px); }
+
+/* ================= REVEAL (scroll animation) ================= */
+.adp-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.adp-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= LAYOUT HELPERS ================= */
+.adp-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.adp-flex-1 { flex: 1; }
+
+.adp-grid-offer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.adp-eyebrow {
+  font-family: var(--adp-display);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--adp-orange-dark);
+  margin-bottom: 14px;
+}
+
+.adp-h2 {
+  font-family: var(--adp-display);
+  font-size: clamp(26px, 3.6vw, 36px);
+  margin: 0 0 16px;
+  color: var(--adp-ink);
+}
+
+.adp-h2--light { color: var(--adp-paper-2); }
+
+.adp-body-p {
+  color: var(--adp-slate-dark);
+  line-height: 1.7;
+  font-size: 16.5px;
+  margin: 0 0 22px;
+}
+
+.adp-body-p--light { color: var(--adp-slate); }
+
+/* ================= CARD SECTION ================= */
+.adp-card-section {
+  padding: 90px 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.adp-card {
+  background: var(--adp-paper-2);
+  border-radius: 20px;
+  padding: 34px 30px;
+  box-shadow: 0 24px 50px rgba(11, 18, 32, 0.14);
+  border: 1px solid var(--adp-line);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  height: 100%;
+}
+
+.adp-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(11, 18, 32, 0.2);
+}
+
+.adp-card-h3 {
+  font-family: var(--adp-display);
+  font-size: 20px;
+  margin: 0 0 12px;
+  color: var(--adp-ink);
+}
+
+.adp-card-h3--light { color: var(--adp-paper-2); }
+
+.adp-card-p {
+  color: var(--adp-slate-dark);
+  line-height: 1.65;
+  font-size: 15.5px;
+  margin: 0 0 12px;
+}
+
+.adp-card-p:last-child { margin-bottom: 0; }
+
+.adp-card-p--light { color: var(--adp-slate); }
+
+.adp-card .adp-btn {
+  margin-top: 18px;
+}
+
+/* ================= STATS ================= */
+.adp-stats-section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px 24px 90px;
+}
+
+.adp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.adp-stat-card {
+  padding: 26px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--adp-line);
+  background: var(--adp-paper-2);
+}
+
+.adp-stat-value {
+  font-family: var(--adp-display);
+  font-weight: 800;
+  font-size: clamp(26px, 4vw, 36px);
+  color: var(--adp-ink);
+}
+
+.adp-stat-label {
+  margin-top: 6px;
+  color: var(--adp-slate-dark);
+  font-size: 13.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ================= WHY CHOOSE US ================= */
+.adp-why-wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 24px 100px;
+}
+
+.adp-why-left-wrap { position: relative; }
+
+.adp-why-left { position: relative; }
+
+.adp-image-shape {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--adp-orange), var(--adp-mint));
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.adp-why-image {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(11, 18, 32, 0.18);
+}
+
+.adp-why-list { margin-top: 8px; }
+
+.adp-why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--adp-line);
+  color: var(--adp-ink);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+.adp-why-item:last-child { border-bottom: none; }
+
+.adp-why-check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 5px;
+  background: var(--adp-mint);
+  transform-origin: left center;
+  position: relative;
+}
+
+.adp-why-check::after {
+  content: "✔";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--adp-ink);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ================= PROCESS ================= */
+.adp-process-section {
+  padding: 90px 24px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.adp-process-intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 46px;
+}
+
+.adp-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.adp-process-card { position: relative; }
+
+.adp-process-step {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--adp-ink);
+  color: var(--adp-orange);
+  font-family: var(--adp-display);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+/* ================= OFFER SECTION ================= */
+.adp-offer-section {
+  background: var(--adp-ink);
+  padding: 90px 24px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.adp-offer-left { position: sticky; top: 40px; }
+
+.adp-card--dark {
+  background: var(--adp-panel);
+  border-color: var(--adp-line);
+  box-shadow: none;
+}
+
+.adp-card--dark:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--adp-orange);
+}
+
+.adp-icon {
+  font-size: 30px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* ================= TECH STACK ================= */
+.adp-tech-section {
+  padding: 90px 24px;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.adp-tech-intro { margin-bottom: 36px; }
+.adp-tech-intro .adp-body-p { margin: 0; }
+
+.adp-tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.adp-tech-chip {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--adp-line);
+  background: var(--adp-paper-2);
+  font-family: var(--adp-display);
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--adp-ink);
+  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.adp-tech-chip:hover {
+  transform: translateY(-3px);
+  border-color: var(--adp-orange);
+  color: var(--adp-orange-dark);
+}
+
+/* ================= TESTIMONIALS ================= */
+.adp-testimonial-section {
+  padding: 90px 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.adp-testimonial-intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 46px;
+}
+
+.adp-card--full-height {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.adp-quote-text {
+  color: var(--adp-slate-dark);
+  font-size: 16px;
+  line-height: 1.75;
+  font-style: italic;
+  margin: 0 0 26px;
+}
+
+.adp-testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.adp-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--adp-orange);
+  color: var(--adp-ink);
+  font-family: var(--adp-display);
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.adp-testimonial-name {
+  font-family: var(--adp-display);
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--adp-ink);
+}
+
+.adp-testimonial-role {
+  color: var(--adp-slate-dark);
+  font-size: 13.5px;
+  margin-top: 2px;
+}
+
+/* ================= FOOTER CTA ================= */
+.adp-footer-cta {
+  text-align: center;
+  padding: 100px 24px;
+  background: linear-gradient(135deg, var(--adp-ink), #1c2b48);
+}
+
+.adp-footer-cta .adp-h2 { color: var(--adp-paper-2); }
+.adp-footer-cta .adp-body-p { color: var(--adp-slate); max-width: 540px; margin-left: auto; margin-right: auto; }
+.adp-footer-cta .adp-btn { margin-top: 8px; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .adp-stats-grid,
+  .adp-process-grid,
+  .adp-grid-offer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .adp-two-col { grid-template-columns: 1fr; }
+  .adp-offer-section { grid-template-columns: 1fr; }
+  .adp-offer-left { position: static; }
+}
+
+@media (max-width: 600px) {
+  .adp-stats-grid,
+  .adp-process-grid,
+  .adp-grid-offer {
+    grid-template-columns: 1fr;
+  }
+  .adp-hero { padding: 100px 20px 80px; }
+}
+
+/* keyboard focus visibility */
+.adp-root a:focus-visible,
+.adp-root button:focus-visible {
+  outline: 2px solid var(--adp-orange);
+  outline-offset: 3px;
+}

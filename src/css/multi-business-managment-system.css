@@ -1,0 +1,415 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* HERO SECTION */
+.mbms-hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Background image lives on its own layer so it can zoom
+   independently of the overlay + content card */
+.mbms-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("./src/assets/solution/hero.jpg") center/cover no-repeat;
+    animation: mbmsKenBurns 20s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+.mbms-hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.mbms-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 60%;
+    background: rgba(0,0,0,0.55);
+    padding: 40px 30px;
+    border-radius: 10px;
+    opacity: 0;
+    animation: mbmsCardIn 0.8s ease-out 0.1s forwards;
+}
+
+.mbms-hero-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: mbmsFadeUp 0.7s ease-out 0.45s forwards;
+}
+
+.mbms-hero-content p {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: mbmsFadeUp 0.7s ease-out 0.65s forwards;
+}
+
+.mbms-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #0052cc;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: mbmsFadeUp 0.7s ease-out 0.85s forwards;
+}
+
+.mbms-btn:hover {
+    background: #4f82ce;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0, 82, 204, 0.35);
+}
+
+@keyframes mbmsKenBurns {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.12);
+    }
+}
+
+@keyframes mbmsCardIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes mbmsFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect users who've asked for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .mbms-hero::before,
+    .mbms-hero-content,
+    .mbms-hero-content h1,
+    .mbms-hero-content p,
+    .mbms-btn {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .mbms-hero-content {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .mbms-hero-content h1 {
+        font-size: 28px;
+    }
+
+    .mbms-hero-content p {
+        font-size: 16px;
+    }
+}
+
+/* ================= CARD SECTION ================= */
+.mbms-card-area {
+  width: 100%;
+  padding: 80px 40px;
+  background: #f7f9fb;
+}
+
+.mbms-card-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.mbms-card {
+  flex: 1;
+  min-width: 320px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.mbms-card h3 {
+  font-size: 22px;
+  color: #111;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.mbms-card p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.mbms-card-btn {
+  margin-top: 10px;
+  padding: 12px 26px;
+  background: #0052cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.mbms-card-btn:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .mbms-card-area {
+    padding: 60px 20px;
+  }
+
+  .mbms-card-container {
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .mbms-card {
+    padding: 25px;
+    min-width: 100%;
+  }
+}
+
+
+/* ================= WHY CHOOSE US ================= */
+.mbms-why-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 5%;
+    gap: 50px;
+}
+
+.mbms-why-left {
+    position: relative;
+    flex: 1;
+    max-width: 45%;
+}
+
+.mbms-image-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #e4f0ff;
+    border-radius: 30% 70% 60% 40% / 40% 40% 60% 70%;
+    top: -20px;
+    left: -20px;
+    z-index: 1;
+}
+
+.mbms-why-left img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.mbms-why-right {
+    flex: 1;
+    max-width: 50%;
+}
+
+.mbms-why-right h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #002147;
+}
+
+.mbms-why-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mbms-why-right ul li {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .mbms-why-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .mbms-why-left,
+    .mbms-why-right {
+        max-width: 100%;
+    }
+
+    .mbms-why-right ul li {
+        margin-left: 10px;
+        text-align: left;
+    }
+}
+
+/* ================= WHAT DO WE OFFER ================= */
+.mbms-offer-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 5%;
+    gap: 50px;
+    background: #E8F7FB;
+}
+
+.mbms-offer-left {
+    width: 45%;
+}
+
+.mbms-offer-left h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #002147;
+    margin-bottom: 20px;
+}
+
+.mbms-offer-left p {
+    font-size: 18px;
+    line-height: 26px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Illustration */
+.mbms-offer-illustration {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mbms-bg-shape {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: #c3f0e9;
+    border-radius: 50% 40% 60% 50%;
+    top: 20px;
+    left: 0;
+    right: 25;
+    margin: auto;
+    z-index: 1;
+}
+
+.mbms-offer-illustration img {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 2;
+}
+
+/* RIGHT */
+.mbms-offer-right {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 30px;
+}
+
+.mbms-offer-item img {
+    width: 45px;
+    margin-bottom: 10px;
+}
+
+.mbms-offer-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #003366;
+}
+
+.mbms-offer-item p {
+    color: #444;
+    line-height: 24px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .mbms-offer-section {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .mbms-offer-left,
+    .mbms-offer-right {
+        width: 100%;
+    }
+
+    .mbms-offer-right {
+        grid-template-columns: 1fr;
+    }
+
+    .mbms-bg-shape {
+        width: 260px;
+        height: 260px;
+        top: 10px;
+    }
+
+    .mbms-offer-illustration {
+        justify-content: flex-start;
+    }
+
+    .mbms-offer-illustration img {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .mbms-bg-shape {
+        width: 220px;
+        height: 220px;
+        top: 0;
+    }
+
+    .mbms-offer-illustration img {
+        max-width: 240px;
+    }
+}

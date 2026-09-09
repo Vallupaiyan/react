@@ -1,0 +1,261 @@
+* { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins", sans-serif; }
+.ux-root { color:#222; overflow-x:hidden; }
+
+/* ---------- Reveal ---------- */
+.ux-reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+.ux-reveal-in { opacity:1; transform:translateY(0); }
+
+@keyframes uxFadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+@keyframes uxFloat { 0%,100%{ transform:translateY(0) rotate(0deg);} 50%{ transform:translateY(-14px) rotate(3deg);} }
+@keyframes uxPulseBtn { 0%{ box-shadow:0 0 0 0 rgba(0,82,204,.45);} 70%{ box-shadow:0 0 0 14px rgba(0,82,204,0);} 100%{ box-shadow:0 0 0 0 rgba(0,82,204,0);} }
+@keyframes uxMarquee { from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+@keyframes uxRippleAnim { to{ transform:scale(2.6); opacity:0; } }
+@keyframes uxWordIn { to{ opacity:1; transform:translateY(0); } }
+
+/* ---------- SCROLL PROGRESS ---------- */
+.ux-progress-bar { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#7c5cff,#0052cc); z-index:999; transition:width .12s ease-out; }
+
+/* ---------- MARQUEE ---------- */
+.ux-marquee { background:#002147; overflow:hidden; white-space:nowrap; padding:8px 0; }
+.ux-marquee-track { display:inline-flex; animation:uxMarquee 18s linear infinite; }
+.ux-marquee-track span { font-size:12.5px; font-weight:700; letter-spacing:.6px; color:#c9d8f2; padding-right:8px; }
+
+/* ---------- RIPPLE ---------- */
+.ux-btn, .ux-card-btn, .ux-plan-btn { position:relative; overflow:hidden; }
+.ux-ripple { position:absolute; border-radius:50%; background:rgba(255,255,255,.5); transform:scale(0); animation:uxRippleAnim .6s ease-out; pointer-events:none; }
+
+/* ---------- HERO ---------- */
+.ux-hero { position:relative; min-height:92vh; background:linear-gradient(135deg,#031431,#0a2a5e 60%,#0052cc); display:flex; align-items:center; justify-content:center; overflow:hidden; text-align:center; }
+.ux-hero-overlay { position:absolute; inset:0; background:rgba(0,0,0,.25); }
+.ux-hero-blobs { position:absolute; inset:0; transition:transform .3s ease-out; }
+.ux-hero-blobs::before, .ux-hero-blobs::after { content:""; position:absolute; border-radius:50%; filter:blur(2px); opacity:.35; animation:uxFloat 7s ease-in-out infinite; }
+.ux-hero-blobs::before { width:260px; height:260px; background:#7c5cff; top:8%; left:6%; }
+.ux-hero-blobs::after { width:200px; height:200px; background:#ffd166; bottom:10%; right:8%; animation-delay:1.5s; }
+.ux-hero-content { position:relative; z-index:2; max-width:680px; padding:0 24px; }
+.ux-hero-title { display:flex; flex-wrap:wrap; justify-content:center; font-size:44px; font-weight:700; color:#fff; margin-bottom:15px; }
+.ux-word { display:inline-block; opacity:0; transform:translateY(24px); animation:uxWordIn .6s ease forwards; }
+.ux-hero-content p { font-size:18px; color:#dce8ff; margin-bottom:28px; animation:uxFadeIn .9s ease .5s both; }
+.ux-btn { display:inline-block; padding:14px 32px; background:#0052cc; color:#fff; font-size:18px; border-radius:8px; text-decoration:none; transition:.3s; animation:uxFadeIn .9s ease .7s both, uxPulseBtn 2.4s ease-in-out infinite 1.6s; }
+.ux-btn:hover { background:#7c5cff; transform:translateY(-3px); }
+
+@media (max-width:768px){
+  .ux-hero-title{ font-size:28px; }
+  .ux-hero-content p{ font-size:16px; }
+}
+
+/* ---------- CARDS ---------- */
+.ux-card-area { width:100%; padding:80px 40px; background:#f7f9fb; }
+.ux-card-container { max-width:1200px; margin:auto; display:flex; gap:30px; flex-wrap:wrap; }
+.ux-card { flex:1; min-width:300px; background:#fff; padding:40px; border-radius:16px; box-shadow:0 8px 25px rgba(0,0,0,.12); transition:transform .35s ease, box-shadow .35s ease; }
+.ux-card:hover { transform:translateY(-8px); box-shadow:0 16px 34px rgba(0,0,0,.16); }
+.ux-card h3 { font-size:22px; font-weight:700; margin-bottom:12px; color:#111; }
+.ux-card p { color:#555; margin-bottom:15px; line-height:1.6; }
+.ux-card-btn { padding:12px 26px; background:#0052cc; color:#fff; border-radius:8px; font-weight:600; transition:.2s; text-decoration:none; display:inline-block; }
+.ux-card-btn:hover { opacity:.9; }
+
+@media (max-width:768px){ .ux-card-area{ padding:60px 20px; } .ux-card{ min-width:100%; padding:25px; } }
+
+/* ---------- STATS ---------- */
+.ux-stats { background:#002147; padding:70px 5%; display:flex; flex-wrap:wrap; justify-content:space-around; gap:30px; text-align:center; }
+.ux-stat { color:#fff; min-width:150px; }
+.ux-counter-num { font-size:42px; font-weight:700; color:#7c5cff; display:block; }
+.ux-stat-label { font-size:15px; color:#c9d8f2; margin-top:6px; letter-spacing:.3px; }
+
+/* ---------- WHY CHOOSE US ---------- */
+.ux-why-wrapper { display:flex; align-items:center; justify-content:space-between; gap:50px; padding:80px 5%; }
+.ux-why-left { position:relative; flex:1; max-width:45%; }
+.ux-image-shape { position:absolute; width:100%; height:100%; background:#e4f0ff; border-radius:30% 70% 60% 40%/40% 40% 60% 70%; top:-20px; left:-20px; z-index:1; animation:uxFloat 9s ease-in-out infinite; }
+.ux-why-left img { position:relative; z-index:2; width:100%; border-radius:20px; }
+.ux-why-right { flex:1; max-width:50%; }
+.ux-why-right h2 { font-size:30px; font-weight:700; margin-bottom:25px; color:#002147; }
+.ux-why-right ul { padding:0; list-style:none; }
+.ux-why-right ul li { font-size:18px; margin-bottom:12px; color:#333; opacity:0; transform:translateX(-16px); animation:uxFadeIn .6s ease forwards; }
+
+@media (max-width:768px){
+  .ux-why-wrapper{ flex-direction:column; align-items:flex-start; text-align:left; }
+  .ux-why-left, .ux-why-right{ max-width:100%; }
+}
+
+/* ---------- SECTION HEADING ---------- */
+.ux-section-heading { text-align:center; max-width:680px; margin:0 auto 46px; }
+.ux-section-heading h2 { font-size:32px; font-weight:700; color:#002147; margin-bottom:12px; }
+.ux-section-heading p { font-size:16px; color:#555; line-height:1.6; }
+.ux-heading-light h2 { color:#fff; }
+
+/* ---------- OFFER SECTION ---------- */
+.ux-offer-section { padding:80px 5%; background:#E8F7FB; }
+.ux-offer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.ux-offer-item { background:#fff; padding:30px 26px; border-radius:16px; box-shadow:0 8px 20px rgba(0,33,71,.08); transition:transform .3s ease, box-shadow .3s ease; }
+.ux-offer-item:hover { transform:translateY(-6px); box-shadow:0 14px 28px rgba(0,33,71,.14); }
+.ux-offer-icon { width:45px; margin-bottom:14px; transition:transform .35s ease; }
+.ux-offer-item:hover .ux-offer-icon { transform:scale(1.15) rotate(-4deg); }
+.ux-offer-item h3 { font-size:19px; font-weight:600; color:#003366; margin-bottom:10px; }
+.ux-offer-item p { color:#444; line-height:24px; font-size:15px; }
+
+@media (max-width:900px){ .ux-offer-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:600px){ .ux-offer-grid{ grid-template-columns:1fr; } }
+
+/* ---------- PROCESS ---------- */
+.ux-process { padding:80px 5%; background:#fff; }
+.ux-process-row { max-width:1100px; margin:0 auto; display:flex; gap:24px; flex-wrap:wrap; justify-content:center; }
+.ux-step { flex:1; min-width:220px; position:relative; text-align:center; padding:30px 20px; }
+.ux-step-num { width:52px; height:52px; border-radius:50%; background:#0052cc; color:#fff; font-weight:700; font-size:18px; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; }
+.ux-step h4 { font-size:18px; color:#002147; margin-bottom:8px; }
+.ux-step p { font-size:14.5px; color:#555; line-height:1.5; }
+.ux-step:not(:last-child)::after { content:""; position:absolute; top:26px; right:-12%; width:24%; height:2px; background:repeating-linear-gradient(90deg,#c9d8f2 0 8px, transparent 8px 14px); }
+@media (max-width:900px){ .ux-step:not(:last-child)::after{ display:none; } }
+
+/* ---------- PLATFORMS ---------- */
+.ux-platforms { background:#002147; padding:70px 5%; }
+.ux-platform-row { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; max-width:900px; margin:0 auto; }
+.ux-platform-card { width:150px; text-align:center; background:#0a2a5e; border-radius:16px; padding:26px 14px; transition:transform .3s ease, box-shadow .3s ease; }
+.ux-platform-card:hover { transform:translateY(-6px); box-shadow:0 10px 24px rgba(0,0,0,.25); }
+.ux-platform-emoji { font-size:34px; display:block; margin-bottom:10px; }
+.ux-platform-card p { font-weight:600; color:#fff; font-size:14.5px; }
+
+/* ---------- PRICING ---------- */
+.ux-pricing { padding:80px 5%; background:#f7f9fb; }
+.ux-pricing-grid { max-width:1100px; margin:0 auto; display:flex; gap:26px; flex-wrap:wrap; justify-content:center; }
+.ux-plan { flex:1; min-width:270px; max-width:340px; background:#fff; border-radius:18px; padding:36px 30px; box-shadow:0 8px 24px rgba(0,0,0,.08); transition:transform .3s ease; }
+.ux-plan:hover { transform:translateY(-8px); }
+.ux-plan-highlight { border:2px solid #0052cc; transform:scale(1.04); }
+.ux-plan-badge { display:inline-block; background:#0052cc; color:#fff; font-size:12px; padding:4px 12px; border-radius:20px; margin-bottom:14px; }
+.ux-plan h3 { font-size:22px; color:#002147; margin-bottom:6px; }
+.ux-plan-price { font-size:30px; font-weight:700; color:#0052cc; }
+.ux-plan-price span { font-size:14px; font-weight:400; color:#666; }
+.ux-plan ul { list-style:none; margin:24px 0 28px; }
+.ux-plan li { font-size:14.5px; color:#333; margin-bottom:10px; padding-left:22px; position:relative; }
+.ux-plan li::before { content:"✓"; position:absolute; left:0; color:#0052cc; font-weight:700; }
+.ux-plan-btn { display:block; text-align:center; padding:12px; border-radius:8px; background:#002147; color:#fff; text-decoration:none; font-weight:600; transition:.2s; }
+.ux-plan-btn:hover { background:#0052cc; }
+
+/* ---------- TESTIMONIALS ---------- */
+.ux-testimonials { padding:80px 5%; background:#002147; }
+.ux-testi-carousel { max-width:600px; margin:0 auto; overflow:hidden; }
+.ux-testi-track { display:flex; transition:transform .6s cubic-bezier(.65,0,.35,1); }
+.ux-testi-slide { min-width:100%; }
+.ux-testi-card { background:#0a2a5e; border-radius:16px; padding:32px 28px; color:#e4ecfb; text-align:center; }
+.ux-testi-quote { font-size:15.5px; line-height:1.7; margin-bottom:18px; }
+.ux-testi-quote::before { content:"“"; font-size:24px; color:#7c5cff; margin-right:4px; }
+.ux-testi-name { font-weight:600; color:#fff; }
+.ux-testi-role { font-size:13px; color:#9fb4dc; }
+.ux-testi-dots { display:flex; justify-content:center; gap:8px; margin-top:20px; }
+.ux-dot { width:9px; height:9px; border-radius:50%; border:none; background:#3a5a91; cursor:pointer; transition:.3s; padding:0; }
+.ux-dot-active { background:#7c5cff; width:22px; border-radius:6px; }
+
+/* ---------- TRUSTED BY ---------- */
+.ux-trusted { padding:44px 5%; background:#fff; text-align:center; border-bottom:1px solid #eee; }
+.ux-trusted-label { font-size:12.5px; letter-spacing:1px; text-transform:uppercase; color:#999; margin-bottom:18px; }
+.ux-trusted-row { display:flex; flex-wrap:wrap; justify-content:center; gap:34px; max-width:900px; margin:0 auto; }
+.ux-trusted-item span { font-weight:700; font-size:16px; color:#8892a6; letter-spacing:.3px; opacity:.75; transition:.25s; }
+.ux-trusted-item:hover span { opacity:1; color:#0052cc; }
+
+/* ---------- DESIGN PRINCIPLES ---------- */
+.ux-principles { padding:80px 5%; background:#f7f9fb; }
+.ux-principles-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.ux-principle-card { background:#fff; border-radius:16px; padding:30px 22px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,.06); transition:transform .3s ease, box-shadow .3s ease; }
+.ux-principle-card:hover { transform:translateY(-6px); box-shadow:0 14px 26px rgba(0,0,0,.1); }
+.ux-principle-icon { font-size:32px; display:block; margin-bottom:12px; }
+.ux-principle-card h4 { font-size:17px; color:#002147; margin-bottom:8px; }
+.ux-principle-card p { font-size:14px; color:#555; line-height:1.55; }
+
+@media (max-width:900px){ .ux-principles-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:560px){ .ux-principles-grid{ grid-template-columns:1fr; } }
+
+/* ---------- CASE STUDIES ---------- */
+.ux-cases { padding:80px 5%; background:#fff; }
+.ux-cases-grid { max-width:1150px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.ux-case-card { border-radius:16px; overflow:hidden; box-shadow:0 8px 22px rgba(0,0,0,.08); transition:transform .3s ease, box-shadow .3s ease; background:#fff; }
+.ux-case-card:hover { transform:translateY(-8px); box-shadow:0 18px 32px rgba(0,0,0,.14); }
+.ux-case-thumb { height:150px; display:flex; align-items:flex-end; padding:16px; }
+.ux-case-thumb-1 { background:linear-gradient(135deg,#7c5cff,#0052cc); }
+.ux-case-thumb-2 { background:linear-gradient(135deg,#ffd166,#f4a261); }
+.ux-case-thumb-3 { background:linear-gradient(135deg,#4f82ce,#002147); }
+.ux-case-metric { background:rgba(255,255,255,.92); color:#111; font-size:13px; font-weight:700; padding:5px 12px; border-radius:20px; }
+.ux-case-info { padding:20px 22px 26px; }
+.ux-case-cat { font-size:11.5px; text-transform:uppercase; letter-spacing:.6px; color:#a9a9a9; }
+.ux-case-info h4 { font-size:18px; color:#111; margin:6px 0 8px; }
+.ux-case-info p { font-size:14px; color:#555; line-height:1.55; }
+
+@media (max-width:900px){ .ux-cases-grid{ grid-template-columns:1fr; } }
+
+/* ---------- DELIVERABLES ---------- */
+.ux-deliverables { padding:80px 5%; background:#002147; }
+.ux-deliverables-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:18px 30px; }
+.ux-deliverable-item { display:flex; align-items:center; gap:12px; background:#0a2a5e; padding:16px 18px; border-radius:10px; color:#e4ecfb; font-size:14.5px; transition:transform .25s ease; }
+.ux-deliverable-item:hover { transform:translateX(4px); }
+.ux-deliverable-check { width:24px; height:24px; border-radius:50%; background:#7c5cff; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+
+@media (max-width:600px){ .ux-deliverables-grid{ grid-template-columns:1fr; } }
+
+/* ---------- FAQ ---------- */
+.ux-faq { padding:80px 5%; background:#fff; max-width:850px; margin:0 auto; }
+.ux-faq-item { border-bottom:1px solid #e2e8f0; }
+.ux-faq-q { width:100%; background:none; border:none; text-align:left; padding:20px 4px; font-size:17px; font-weight:600; color:#111; display:flex; justify-content:space-between; align-items:center; cursor:pointer; }
+.ux-faq-icon { font-size:22px; color:#0052cc; }
+.ux-faq-a-wrap { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.ux-faq-open .ux-faq-a-wrap { max-height:200px; }
+.ux-faq-a { padding:0 4px 20px; color:#555; line-height:1.6; font-size:15px; }
+
+/* ---------- CTA ---------- */
+.ux-cta { padding:70px 5%; background:linear-gradient(120deg,#0052cc,#002147); text-align:center; }
+.ux-cta h2 { color:#fff; font-size:30px; margin-bottom:14px; }
+.ux-cta p { color:#dce8ff; margin-bottom:28px; font-size:16px; }
+
+/* =========================================================
+   HERO — EXTRA ANIMATION LAYER (added, hero-only)
+   ========================================================= */
+
+/* Particles floating up behind the content */
+.ux-hero-particles { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:1; }
+.ux-particle { position:absolute; bottom:-20px; border-radius:50%; background:rgba(255,255,255,.55); animation:uxParticleFloat linear infinite; }
+@keyframes uxParticleFloat {
+  0%   { transform:translateY(0) translateX(0) scale(1); opacity:0; }
+  10%  { opacity:.55; }
+  50%  { transform:translateY(-46vh) translateX(var(--drift,12px)) scale(.85); }
+  90%  { opacity:.35; }
+  100% { transform:translateY(-92vh) translateX(calc(var(--drift,12px) * 2)) scale(.4); opacity:0; }
+}
+
+/* Fine grid overlay for depth, very subtle */
+.ux-hero-grid { position:absolute; inset:0; z-index:1; opacity:.15; pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+  background-size:42px 42px;
+  -webkit-mask-image:radial-gradient(ellipse at center, #000 0%, transparent 70%);
+  mask-image:radial-gradient(ellipse at center, #000 0%, transparent 70%);
+}
+
+/* Status badge above headline */
+.ux-hero-badge { position:relative; z-index:2; display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.22); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); padding:8px 18px; border-radius:30px; color:#dce8ff; font-size:13px; font-weight:600; margin-bottom:22px; opacity:0; animation:uxFadeIn .7s ease .05s both; }
+.ux-hero-badge-dot { width:7px; height:7px; border-radius:50%; background:#5ee6a0; animation:uxDotPulse 1.8s ease-in-out infinite; }
+@keyframes uxDotPulse { 0%{ box-shadow:0 0 0 0 rgba(94,230,160,.55); } 70%{ box-shadow:0 0 0 8px rgba(94,230,160,0); } 100%{ box-shadow:0 0 0 0 rgba(94,230,160,0); } }
+
+/* Shine sweep across the whole headline, one orchestrated pass */
+.ux-hero-title-wrap { position:relative; display:inline-block; overflow:hidden; }
+.ux-hero-title-wrap::after {
+  content:""; position:absolute; top:0; left:-160%; width:55%; height:100%;
+  background:linear-gradient(115deg, transparent, rgba(255,255,255,.4), transparent);
+  transform:skewX(-20deg); animation:uxShineSweep 4.5s ease-in-out 1.6s infinite;
+  pointer-events:none;
+}
+@keyframes uxShineSweep { 0%{ left:-160%; } 35%{ left:160%; } 100%{ left:160%; } }
+
+/* Shine sweep on the CTA button (separate from the click ripple) */
+.ux-btn::before {
+  content:""; position:absolute; top:0; left:-75%; width:45%; height:100%;
+  background:linear-gradient(115deg, transparent, rgba(255,255,255,.45), transparent);
+  transform:skewX(-20deg); transition:left .65s ease; pointer-events:none;
+}
+.ux-btn:hover::before { left:135%; }
+
+/* Scroll cue at the base of the hero */
+.ux-scroll-cue { position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0; animation:uxFadeIn .8s ease 1.3s both; background:none; border:none; cursor:pointer; }
+.ux-scroll-cue span { font-size:11px; letter-spacing:1.5px; color:rgba(255,255,255,.6); text-transform:uppercase; }
+.ux-scroll-mouse { width:22px; height:36px; border:2px solid rgba(255,255,255,.5); border-radius:12px; position:relative; }
+.ux-scroll-mouse::before { content:""; position:absolute; top:6px; left:50%; width:4px; height:8px; background:#fff; border-radius:2px; transform:translateX(-50%); animation:uxScrollDot 1.6s ease-in-out infinite; }
+@keyframes uxScrollDot { 0%{ opacity:1; top:6px; } 70%{ opacity:0; top:19px; } 100%{ opacity:0; top:6px; } }
+
+@media (max-width:768px){
+  .ux-hero-badge{ font-size:12px; padding:7px 14px; }
+  .ux-scroll-cue{ bottom:16px; }
+}

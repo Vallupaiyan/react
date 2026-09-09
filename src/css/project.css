@@ -1,0 +1,557 @@
+/* Profenaa Infotech — Projects page styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Syne:wght@700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-synthesis: none;
+}
+
+:root {
+  --brand: #0052cc;
+  --brand-dark: #003d99;
+  --brand-light: #e8f0ff;
+  --brand-mid: #ccdeff;
+  --accent: #00c2ff;
+  --white: #ffffff;
+  --ink: #0a0f1e;
+  --muted: #4a5568;
+  --surface: #f5f8ff;
+  --card-border: rgba(0, 82, 204, 0.12);
+  --radius: 16px;
+
+  --font-primary: "Poppins", sans-serif;
+  --clr-bg: #f4f6fb;
+  --clr-surface: #ffffff;
+  --clr-surface-hover: #f9fafb;
+  --clr-primary: #5b5ef6;
+  --clr-primary-light: #ededff;
+  --clr-primary-dark: #3c3fc4;
+  --clr-accent: #ff6b6b;
+  --clr-accent-light: #fff0f0;
+  --clr-text-primary: #1a1a2e;
+  --clr-text-secondary: #6b7280;
+  --clr-text-muted: #9ca3af;
+  --clr-border: rgba(0, 0, 0, 0.08);
+  --clr-border-hover: rgba(91, 94, 246, 0.35);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 12px 32px rgba(91, 94, 246, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-btn: 0 2px 10px rgba(91, 94, 246, 0.35);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--clr-bg);
+  color: var(--clr-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, var(--brand) 0%, #003080 60%, #001a55 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 80px 24px 72px;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(0, 194, 255, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+/* ── HERO FLOATING BUBBLES + ICONS ──
+   Bubbles and icons are independent elements, each drifting slowly
+   on its own wide, irregular path with its own timing — so they
+   never look tethered to one another. Everything is intentionally
+   slow (22s+) so it reads as ambient, not busy. */
+.hero-icons {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(0, 194, 255, 0.18), rgba(0, 194, 255, 0.04) 70%);
+  border: 1px solid rgba(0, 194, 255, 0.2);
+  box-shadow: 0 0 24px rgba(0, 194, 255, 0.1), inset 0 0 12px rgba(255, 255, 255, 0.05);
+  animation: bubbleDrift ease-in-out infinite;
+}
+
+.hero-icon {
+  position: absolute;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.5;
+  animation: iconDrift ease-in-out infinite;
+}
+
+/* bubbles — wide, slow, gentle drift */
+.hero-bubble.b-1 { width: 64px; height: 64px; top: 14%; left: 6%;  animation-duration: 30s; animation-delay: 0s; }
+.hero-bubble.b-2 { width: 50px; height: 50px; top: 58%; left: 9%;  animation-duration: 34s; animation-delay: 3s; }
+.hero-bubble.b-3 { width: 58px; height: 58px; top: 18%; right: 7%; animation-duration: 28s; animation-delay: 1.5s; }
+.hero-bubble.b-4 { width: 70px; height: 70px; top: 64%; right: 11%; animation-duration: 36s; animation-delay: 5s; }
+.hero-bubble.b-5 { width: 46px; height: 46px; top: 5%;  left: 39%; animation-duration: 32s; animation-delay: 2.2s; }
+.hero-bubble.b-6 { width: 44px; height: 44px; top: 78%; left: 43%; animation-duration: 26s; animation-delay: 4s; }
+
+/* icons — separate positions, own slow drift only */
+.hero-icon.i-1 { width: 26px; top: 22%; left: 10%;  animation-duration: 24s; animation-delay: 0.5s; }
+.hero-icon.i-2 { width: 22px; top: 66%; left: 15%;  animation-duration: 27s; animation-delay: 2s; }
+.hero-icon.i-3 { width: 24px; top: 26%; right: 12%; animation-duration: 22s; animation-delay: 1s; }
+.hero-icon.i-4 { width: 28px; top: 70%; right: 16%; animation-duration: 29s; animation-delay: 3s; }
+.hero-icon.i-5 { width: 20px; top: 10%; left: 45%;  animation-duration: 25s; animation-delay: 1.6s; }
+.hero-icon.i-6 { width: 22px; top: 82%; left: 48%;  animation-duration: 23s; animation-delay: 2.6s; }
+
+/* Slow, wide, irregular drift so it never looks like a mechanical loop */
+@keyframes bubbleDrift {
+  0%   { transform: translate(0, 0); }
+  22%  { transform: translate(24px, -30px); }
+  46%  { transform: translate(-18px, 20px); }
+  68%  { transform: translate(28px, 26px); }
+  84%  { transform: translate(-22px, -14px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes iconDrift {
+  0%   { translate: 0 0; }
+  25%  { translate: -20px 18px; }
+  50%  { translate: 22px -16px; }
+  75%  { translate: 14px 22px; }
+  100% { translate: 0 0; }
+}
+
+@media (max-width: 700px) {
+  .hero-bubble, .hero-icon { opacity: 0.5; }
+  .hero-bubble.b-5, .hero-bubble.b-6,
+  .hero-icon.i-5, .hero-icon.i-6 { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bubble,
+  .hero-icon {
+    animation: none;
+  }
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow span.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.hero h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
+  /* Prevents browsers from synthesizing bold/oblique glyphs when the
+     exact webfont weight isn't ready yet — this synthesis is what
+     causes the skewed/slanted look on the heading text. */
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-synthesis: none;
+}
+
+.hero-sub {
+  margin-top: 18px;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 520px;
+  margin-inline: auto;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-num {
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+/* ── FILTERS (styles ready if you wire up filtering later) ── */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 36px 24px 0;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1.5px solid var(--card-border);
+  background: var(--white);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(0, 82, 204, 0.28);
+}
+
+/* ── SECTION / GRID ── */
+.section {
+  padding: 5rem 1.25rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(91, 94, 246, 0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--clr-border-hover);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  background: var(--clr-primary-light);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.card-img-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 26, 46, 0.5) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.card:hover .card-img-wrapper::after {
+  opacity: 1;
+}
+
+.card-body {
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.card-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  background: var(--clr-primary-light);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+}
+
+.card-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--clr-text-primary);
+  line-height: 1.4;
+}
+
+.card-desc {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--clr-text-secondary);
+  line-height: 1.65;
+  flex: 1;
+  display: -webkit-box;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 0.35rem;
+}
+
+.card-tag {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--clr-primary-dark);
+  background: var(--clr-primary-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(91, 94, 246, 0.18);
+}
+
+.card-divider {
+  height: 1px;
+  background: var(--clr-border);
+  margin: 0.45rem 0 0.35rem;
+}
+
+.card-footer {
+  padding: 0 1.15rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.5rem 1.15rem;
+  font-family: var(--font-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--clr-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: var(--shadow-btn);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-view::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.btn-view:hover {
+  background: var(--clr-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(91, 94, 246, 0.5);
+}
+
+.btn-view:hover::after {
+  opacity: 1;
+}
+
+.btn-view:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-btn);
+}
+
+.btn-view svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.btn-view:hover svg {
+  transform: translateX(3px);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .section {
+    padding: 3.5rem 1rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 2.5rem 1rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .card-body {
+    padding: 1.1rem 1.15rem;
+  }
+  .card-footer {
+    padding: 0 1.15rem 1.1rem;
+  }
+  .card-title {
+    font-size: 0.95rem;
+  }
+  .card-desc {
+    line-clamp: 4;
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1099px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
